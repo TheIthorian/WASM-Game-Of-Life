@@ -30,10 +30,15 @@
         "wasm-game-of-life": "file:../pkg"
     },
     "devDependencies": {
+        "@types/node": "^18.11.18",
+        "@types/prettier": "^2.7.2",
+        "copy-webpack-plugin": "^5.0.0",
+        "eslint-config-next": "13.1.6",
+        "eslint": "^8.30.0",
         "hello-wasm-pack": "^0.1.0",
-        "webpack": "^4.29.3",
+        "prettier": "^2.8.1",
         "webpack-cli": "^3.1.0",
         "webpack-dev-server": "^3.1.5",
-        "copy-webpack-plugin": "^5.0.0"
+        "webpack": "^4.29.3"
     }
 }
