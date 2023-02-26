@@ -2,7 +2,7 @@
 
 ## About
 
-An example of a wasm project using https://rustwasm.github.io/docs/book and following this tutorial https://rustwasm.github.io/wasm-bindgen/examples/2d-canvas
+An example of a wasm project using https://rustwasm.github.io/docs/book/game-of-life/implementing.html and following this tutorial https://rustwasm.github.io/wasm-bindgen/examples/2d-canvas
 
 ## Installing
 
