@@ -1,6 +1,13 @@
 #![allow(unused_variables)]
+extern crate js_sys;
+extern crate web_sys;
+
 use std::fmt;
 use wasm_bindgen::prelude::*;
+
+const WIDTH: u32 = 128;
+const HEIGHT: u32 = 128;
+const INITIAL_ALIVE_FRACTION: f64 = 0.4;
 
 #[wasm_bindgen]
 #[repr(u8)]
@@ -83,15 +90,17 @@ impl Universe {
         }
 
         self.cells = next;
+
+        let _timer = Timer::new("Universe::tick");
     }
 
     pub fn new() -> Universe {
-        let width = 64;
-        let height = 64;
+        let width = WIDTH;
+        let height = HEIGHT;
 
         let cells = (0..width * height)
             .map(|i| {
-                if i % 2 == 0 || i % 7 == 0 {
+                if js_sys::Math::random() < INITIAL_ALIVE_FRACTION {
                     return Cell::Alive;
                 }
                 Cell::Dead
@@ -123,6 +132,24 @@ impl fmt::Display for Universe {
         Ok(())
     }
 }
+
+pub struct Timer<'a> {
+    name: &'a str,
+}
+
+impl<'a> Timer<'a> {
+    pub fn new(name: &'a str) -> Timer<'a> {
+        // console::time_with_label(name);
+        Timer { name }
+    }
+}
+
+impl<'a> Drop for Timer<'a> {
+    fn drop(&mut self) {
+        // console::time_end_with_label(self.name);
+    }
+}
+
 fn main() {
     #[wasm_bindgen(start)]
     fn start() {}
