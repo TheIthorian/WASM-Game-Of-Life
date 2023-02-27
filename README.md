@@ -8,7 +8,7 @@ An example of a wasm project using https://rustwasm.github.io/docs/book/game-of-
 
 1. Clone this project
     ```sh
-    git clone --
+    git clone https://github.com/TheIthorian/WASM-Game-Of-Life.git
     ```
 2. Install rust: https://www.rust-lang.org/tools/install
 3. Install wasm-pack: https://rustwasm.github.io/wasm-pack/installer/
