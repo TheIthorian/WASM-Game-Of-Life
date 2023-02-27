@@ -1,6 +1,8 @@
 export class FPS {
-    constructor() {
-        this.fps = document.getElementById('fps');
+    // fpsDiv;
+
+    constructor(fpsDiv) {
+        this.fpsDiv = fpsDiv;
         this.frames = [];
         this.lastFrameTimeStamp = performance.now();
     }
@@ -31,7 +33,7 @@ export class FPS {
         let mean = sum / this.frames.length;
 
         // Render the statistics.
-        this.fps.textContent = `
+        this.fpsDiv.textContent = `
   Frames per Second:
            latest = ${Math.round(fps)}
   avg of last 100 = ${Math.round(mean)}

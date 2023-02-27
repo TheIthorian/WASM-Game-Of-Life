@@ -1,5 +1,5 @@
-export const WIDTH = 500;
-export const HEIGHT = 500;
+export const WIDTH = 100;
+export const HEIGHT = 100;
 
 export const CELL_SIZE = 5; // px
 export const GRID_COLOR = '#CCCCCC';
