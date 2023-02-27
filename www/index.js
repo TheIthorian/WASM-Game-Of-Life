@@ -68,8 +68,8 @@ const renderLoop = () => {
     fps.render(); //new
     universe.tick();
 
-    drawGrid();
     drawCells();
+    drawGrid();
 
     requestAnimationFrame(renderLoop);
 };
@@ -105,11 +105,17 @@ function drawCells() {
 
     ctx.beginPath();
 
+    // Alive cells.
+    ctx.fillStyle = DEAD_COLOR;
+    ctx.fillRect(0, 0, width * CELL_SIZE + width, height * CELL_SIZE * height);
+
+    ctx.fillStyle = ALIVE_COLOR;
     for (let row = 0; row < height; row++) {
         for (let col = 0; col < width; col++) {
             const idx = getIndex(row, col);
-
-            ctx.fillStyle = cells[idx] === Cell.Dead ? DEAD_COLOR : ALIVE_COLOR;
+            if (cells[idx] !== Cell.Alive) {
+                continue;
+            }
 
             ctx.fillRect(
                 col * (CELL_SIZE + 1) + 1,
