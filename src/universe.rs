@@ -2,8 +2,6 @@ use crate::timer;
 use std::fmt;
 use wasm_bindgen::prelude::*;
 
-const WIDTH: u32 = 500;
-const HEIGHT: u32 = 500;
 const INITIAL_ALIVE_FRACTION: f64 = 0.4;
 
 #[wasm_bindgen]
@@ -127,10 +125,7 @@ impl Universe {
         self.cells = next;
     }
 
-    pub fn new() -> Universe {
-        let width = WIDTH;
-        let height = HEIGHT;
-
+    pub fn new(width: u32, height: u32) -> Universe {
         let cells = (0..width * height)
             .map(|i| {
                 if js_sys::Math::random() < INITIAL_ALIVE_FRACTION {
